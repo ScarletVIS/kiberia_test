@@ -5,8 +5,9 @@
 > `git clone https://github.com/ScarletVIS/kiberia_test.git`
 
 2. Переходим в папку проекта
-> `cd laravel`
+> `cd kiberia_test/laravel`
 
+.env.example переименовываем в .env
 
 # Для локальной версии #
 
@@ -18,9 +19,11 @@
 5. Если база данных laravel не создана то создаем её
 
 6. Устанавливаем зависимости Laravel и запускаем сборку Vite
-> `composer install --no-dev --optimize-autoloader`
+> `composer install`
 
-> `npm install && npm run build`
+> `npm install`
+
+> `npm run build`
 
 7. Запускаем миграции и сиды
 > `php artisan migrate --seed`
@@ -28,6 +31,9 @@
 или
 
 > `php artisan migrate:refresh --seed`
+
+8. Генерируем ключ Laravel
+> `php artisan key:generate`
 
 8. Запускаем Laravel
 > `php artisan serve`
@@ -66,7 +72,3 @@
 > `docker-compose exec app bash`
 
 > `php artisan migrate:refresh --seed`
-
-docker-compose exec app php artisan key:generate
-
-docker-compose exec app php artisan config:cache

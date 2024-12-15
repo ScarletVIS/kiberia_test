@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Создаем ключ Laravel
+php artisan key:generate
+
 # Выполнение миграций и сидеров
 php artisan migrate:refresh --seed
 

@@ -27,7 +27,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 # 6. Устанавливаем зависимости Laravel и запускаем сборку Vite
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install
 
 RUN npm install && npm run build
 
