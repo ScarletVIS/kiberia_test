@@ -4,7 +4,7 @@
 php artisan key:generate
 
 # Выполнение миграций и сидеров
-php artisan migrate:refresh --seed
+php artisan migrate --seed
 
 # Запуск приложения Laravel
 php artisan serve --host=0.0.0.0 --port=8000
