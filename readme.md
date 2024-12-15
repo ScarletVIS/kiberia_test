@@ -2,7 +2,7 @@
 
 
 1. Клонируем репозиторий
-> `git clone https://github.com/ScarletVIS/kiberia_test.git`
+> ```git clone https://github.com/ScarletVIS/kiberia_test.git```
 
 2. Переходим в папку проекта
 > `cd kiberia_test/laravel`
