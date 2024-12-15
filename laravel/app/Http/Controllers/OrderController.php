@@ -153,19 +153,19 @@ class OrderController extends Controller
             return redirect()->route('orders.index',['page' => request('page')])->withErrors(['error' => 'Этот заказ уже подтвержден.']);
         }
 
-        // Проверяем баланс клиента
-        if ($client->balance < $order->total) {
-            return redirect()->route('orders.index', ['page' => request('page')])->withErrors(['error' => 'У клиента недостаточно средств для подтверждения заказа.']);
-        }
-
-        // Проверяем наличие товаров на складе
-        foreach ($order->items as $item) {
-            if ($item->product->quantity < $item->quantity) {
-                return redirect()->route('orders.index',['page' => request('page')])->withErrors(['error' => "Недостаточно товара '{$item->product->name}' на складе."]);
-            }
-        }
-
         if ($order->status === 'canceled') {
+            // Проверяем баланс клиента
+            if ($client->balance < $order->total) {
+                return redirect()->route('orders.index', ['page' => request('page')])->withErrors(['error' => 'У клиента недостаточно средств для подтверждения заказа.']);
+            }
+
+            // Проверяем наличие товаров на складе
+            foreach ($order->items as $item) {
+                if ($item->product->quantity < $item->quantity) {
+                    return redirect()->route('orders.index',['page' => request('page')])->withErrors(['error' => "Недостаточно товара '{$item->product->name}' на складе."]);
+                }
+            }
+
             // Списываем средства с баланса клиента
             $client->balance -= $order->total;
             $client->save();
