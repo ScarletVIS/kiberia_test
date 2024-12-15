@@ -20,6 +20,14 @@ class UserSeeder extends Seeder
             'is_admin' => true,
         ]);
 
+        // Создать 1 клиента
+        User::factory()->create([
+            'email' => 'kiberia_test@example.com',
+            'name' => 'Scarlet',
+            'balance' => 10000,
+            'is_admin' => false,
+        ]);
+
         // Создать 10 обычных пользователей
         User::factory()->count(10)->create();
 
