@@ -19,11 +19,14 @@
 
 6. Устанавливаем зависимости Laravel и запускаем сборку Vite
 > `composer install --no-dev --optimize-autoloader`
+
 > `npm install && npm run build`
 
 7. Запускаем миграции и сиды
 > `php artisan migrate --seed`
+
 или
+
 > `php artisan migrate:refresh --seed`
 
 8. Запускаем Laravel
@@ -52,8 +55,11 @@
 > `docker-compose exec db mysql -u root -p`
 
 > CREATE USER 'scarlet'@'%' IDENTIFIED BY '12345';
+
 > FLUSH PRIVILEGES;
+
 > GRANT ALL PRIVILEGES ON `laravel`.* TO 'scarlet'@'%' ;
+
 > FLUSH PRIVILEGES;
 
 2. Заново запускаем миграции
